@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using E2EStarter.Data;
+using E2EStarter.Models;
+using E2EStarter.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -9,9 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using E2EStarter.Data;
-using E2EStarter.Models;
-using E2EStarter.Services;
 
 namespace E2EStarter
 {
@@ -19,6 +15,8 @@ namespace E2EStarter
     {
         public Startup(IHostingEnvironment env)
         {
+            string pos = Newtonsoft.Json.JsonConvert.PositiveInfinity;
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
